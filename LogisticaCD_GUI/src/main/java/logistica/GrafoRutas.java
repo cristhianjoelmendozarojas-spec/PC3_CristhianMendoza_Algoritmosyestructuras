@@ -5,14 +5,16 @@ import java.util.*;
 public class GrafoRutas {
     private Map<String, LinkedList<Ruta>> adyacencia = new HashMap<>();
 
+       // Registra una ciudad sin duplicar.
     public void agregarCiudad(String ciudad) {
         adyacencia.putIfAbsent(ciudad, new LinkedList<>());
     }
-
+ // Agrega una ruta dirigida desde origen.
     public void agregarRuta(String origen, String destino, int km) {
         adyacencia.get(origen).add(new Ruta(destino, km));
     }
 
+     // Retorna la red de rutas completa como texto.
     public String mostrarRutas() {
         if (adyacencia.isEmpty()) return "No hay rutas.";
         StringBuilder sb = new StringBuilder("--- Red de rutas ---\n");
@@ -26,6 +28,7 @@ public class GrafoRutas {
         return sb.toString();
     }
 
+      // Recorrido BFS desde una ciudad. Retorna ciudades visitadas.
     public List<String> bfs(String inicio) {
         List<String> visitados = new ArrayList<>();
         if (!adyacencia.containsKey(inicio)) return visitados;
@@ -45,7 +48,7 @@ public class GrafoRutas {
         }
         return visitados;
     }
-
+   // Calcula la distancia total de un camino de ciudades.
     public int distanciaRuta(List<String> camino) {
         int total = 0;
         for (int i = 0; i < camino.size() - 1; i++) {
@@ -60,7 +63,7 @@ public class GrafoRutas {
         }
         return total;
     }
-
+ // Verifica si una ciudad existe en el grafo.
     public boolean existeCiudad(String ciudad) {
         return adyacencia.containsKey(ciudad);
     }

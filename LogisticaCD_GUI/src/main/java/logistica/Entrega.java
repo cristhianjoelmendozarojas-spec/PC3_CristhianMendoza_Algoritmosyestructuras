@@ -7,6 +7,7 @@ public class Entrega {
     private String destino;
     private int cantidad;
 
+    // Constructor: inicializa id, producto, camion, destino y cantidad.
     public Entrega(int id, String producto, String camion, String destino, int cantidad) {
         this.id = id;
         this.producto = producto;

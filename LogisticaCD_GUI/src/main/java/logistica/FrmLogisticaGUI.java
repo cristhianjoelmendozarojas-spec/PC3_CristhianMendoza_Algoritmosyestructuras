@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Cristhian
  */
 public class FrmLogisticaGUI extends javax.swing.JFrame {
-
+  // Atributos de las estructuras de datos.
     private ArbolInventario inventario = new ArbolInventario();
     private ColaCamiones cola = new ColaCamiones();
     private GrafoRutas grafo = new GrafoRutas();
